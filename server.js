@@ -6,7 +6,8 @@ const puppeteer = require("puppeteer");
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://upvote-case-client.netlify.app/",
+    methods: "GET, POST",
   }),
   express.json({
     extended: false,
