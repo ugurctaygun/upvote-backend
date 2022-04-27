@@ -2,7 +2,10 @@
   "name": "upvote-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start": "node server.js"
   },
@@ -20,7 +23,9 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.0",
+    "netlify-lambda": "^2.0.15",
     "pupeteer": "^0.0.1",
-    "puppeteer": "^13.6.0"
+    "puppeteer": "^13.6.0",
+    "serverless-http": "^3.0.1"
   }
 }

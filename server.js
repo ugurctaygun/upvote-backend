@@ -24,19 +24,20 @@ app.get("http://localhost:5000/images/:id", (req, res) => {
 app.post("/api", async (req, res) => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  await page.goto(req.body.url, { waitUntil: "networkidle2" });
 
-  let siteTitle = await page.evaluate(() => {
-    return document.title;
-  });
+  try {
+    await page.goto(req.body.url, { waitUntil: "networkidle2" });
 
-  let screenshotUrl = `./images/${Math.floor(Math.random() * 1000000)}.png`;
-  await page.screenshot({
-    path: screenshotUrl,
-  });
+    let screenshotUrl = `./images/${Math.floor(Math.random() * 1000000)}.png`;
+    await page.screenshot({
+      path: screenshotUrl,
+    });
 
-  await browser.close();
-  res.send({ url: screenshotUrl });
+    await browser.close();
+    res.send({ url: screenshotUrl });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(PORT, () => {
