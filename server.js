@@ -28,7 +28,7 @@ app.get("https://upvote-case-backend.herokuapp.com/images/:id", (req, res) => {
   res.sendFile(`https://upvote-case-backend.herokuapp.com/images/${fileName}`);
 });
 
-app.post("/api", async (req, res) => {
+app.post("https://upvote-case-backend.herokuapp.com/api", async (req, res) => {
   const browser = await puppeteer.launch({
     headless: false,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
