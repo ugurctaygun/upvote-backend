@@ -25,12 +25,12 @@ app.use(
 
 app.use("/images", express.static("images"));
 
-app.get("https://upvote-case-backend.herokuapp.com/images/:id", (req, res) => {
+app.get("/images/:id", (req, res) => {
   var fileName = req.params.id;
-  res.sendFile(`https://upvote-case-backend.herokuapp.com/images/${fileName}`);
+  res.sendFile(`/images/${fileName}`);
 });
 
-app.post("https://upvote-case-backend.herokuapp.com/api", async (req, res) => {
+app.post("/api", async (req, res) => {
   const browser = await puppeteer.launch({
     headless: false,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
