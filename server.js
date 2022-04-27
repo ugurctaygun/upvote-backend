@@ -16,9 +16,9 @@ app.use(
 
 app.use("/images", express.static("images"));
 
-app.get("https://upvote-case-backend.herokuapp.com/:id", (req, res) => {
+app.get("https://upvote-case-backend.herokuapp.com/images/:id", (req, res) => {
   var fileName = req.params.id;
-  res.sendFile(`https://upvote-case-backend.herokuapp.com/${fileName}`);
+  res.sendFile(`https://upvote-case-backend.herokuapp.com/images/${fileName}`);
 });
 
 app.post("/api", async (req, res) => {
